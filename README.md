@@ -10,6 +10,7 @@ Skills that let agents manage their own capabilities.
 | `adapting-skills` | Modify skills for new contexts |
 | `detecting-skill-gaps` | Recognize when a new skill should be created |
 | `connecting-agents` | Delegate to external agents (Manus, etc.) |
+| `optimizing-context` | Audit and optimize context, memory, and skill configurations |
 
 ## Installation
 
@@ -27,6 +28,7 @@ Skills activate automatically. Examples:
 - "I need to work with PDFs" → searches for existing PDF skills
 - "This skill uses the wrong framework" → forks and adapts it
 - "Fill out this web form" → delegates to Manus for browser automation
+- "Audit my CLAUDE.md and skills" → reviews and optimizes context configuration
 
 ## License
 
