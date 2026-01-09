@@ -30,4 +30,4 @@ Skills activate automatically. Examples:
 
 ## License
 
-MIT
+Apache-2.0
