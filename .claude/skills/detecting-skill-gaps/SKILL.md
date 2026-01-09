@@ -57,6 +57,10 @@ Recommended Action: [create skill / adapt X / delegate to Y]
 Suggested Skill Name: [if creating]
 ```
 
+## Reference Documentation
+
+- **Skill authoring**: https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices
+
 ## Integration
 
 - Gap addressable locally → draft skill specification

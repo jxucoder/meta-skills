@@ -29,8 +29,12 @@ Report: skill name, source, what it does, how well it fits, install command.
 
 Report what was searched and offer: create new, adapt similar, or proceed without.
 
+## Reference Documentation
+
+- **Skill authoring**: https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices
+
 ## Integration
 
 - Imperfect fit → suggest adapting-skills
 - Not found → suggest detecting-skill-gaps
-- Multiple found → let user choose or suggest fusing-skills
+- Multiple found → let user choose best fit

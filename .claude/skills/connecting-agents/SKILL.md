@@ -1,6 +1,6 @@
 ---
 name: connecting-agents
-description: Delegates tasks to external agents (Manus, OpenAI, custom APIs) when local capabilities are insufficient. Use when tasks require real browser automation, web scraping, persistent compute, long-running autonomous execution, or multi-step workflows with deliverables.
+description: Delegates tasks to Manus when local capabilities are insufficient. Use when tasks require real browser automation, web scraping, persistent compute, long-running autonomous execution, or multi-step workflows with deliverables.
 allowed-tools: WebFetch, Bash, Read, Write
 ---
 
@@ -43,33 +43,6 @@ response = requests.post(
 )
 task_id = response.json()["task_id"]
 # Poll for completion, then fetch results
-```
-
-### OpenAI Agents
-
-**Capabilities**: Code interpreter, web browsing, file handling
-
-**Use for**: Alternative approaches, specialized models
-
-```python
-from openai import OpenAI
-client = OpenAI()
-
-run = client.beta.threads.runs.create(
-    thread_id=thread.id,
-    assistant_id=assistant.id
-)
-```
-
-### Custom Agents
-
-**Use for**: Internal tools, proprietary workflows
-
-```python
-response = requests.post(
-    "https://your-agent.example.com/api/task",
-    json={"prompt": task_description, "context": context}
-)
 ```
 
 ## Delegation Process
