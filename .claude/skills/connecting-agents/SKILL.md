@@ -1,6 +1,6 @@
 ---
 name: connecting-agents
-description: Delegates tasks to external agents when local capabilities are insufficient. Connects to Manus, OpenAI agents, or custom agent APIs. Determines when delegation is appropriate and integrates results back into context.
+description: Delegates tasks to external agents (Manus, OpenAI, custom APIs) when local capabilities are insufficient. Use when tasks require real browser automation, web scraping, persistent compute, long-running autonomous execution, or multi-step workflows with deliverables.
 allowed-tools: WebFetch, Bash, Read, Write
 ---
 
@@ -24,17 +24,53 @@ Extend capabilities by delegating to external agents.
 ## Supported Agents
 
 ### Manus
-- **Capabilities**: Browser automation, file system, multi-step autonomy
-- **Use for**: Web scraping, form filling, complex UI testing
-- **API**: Requires Manus API key
+
+Complete AI agent with autonomous multi-step execution.
+
+**Capabilities**: Browser automation, file system, research, content creation, data processing
+
+**Use for**: Web scraping, form filling, complex research, deliverables (reports, presentations, websites)
+
+**API**: RESTful. [Docs](https://manus.im/docs/integrations/manus-api)
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.manus.im/v1/tasks",
+    headers={"Authorization": f"Bearer {MANUS_API_KEY}"},
+    json={"task": "Research competitor pricing and create summary report"}
+)
+task_id = response.json()["task_id"]
+# Poll for completion, then fetch results
+```
 
 ### OpenAI Agents
-- **Capabilities**: Code interpreter, web browsing, file handling
-- **Use for**: Alternative approaches, specialized models
+
+**Capabilities**: Code interpreter, web browsing, file handling
+
+**Use for**: Alternative approaches, specialized models
+
+```python
+from openai import OpenAI
+client = OpenAI()
+
+run = client.beta.threads.runs.create(
+    thread_id=thread.id,
+    assistant_id=assistant.id
+)
+```
 
 ### Custom Agents
-- **Capabilities**: User-defined via API endpoints
-- **Use for**: Internal tools, proprietary workflows
+
+**Use for**: Internal tools, proprietary workflows
+
+```python
+response = requests.post(
+    "https://your-agent.example.com/api/task",
+    json={"prompt": task_description, "context": context}
+)
+```
 
 ## Delegation Process
 
