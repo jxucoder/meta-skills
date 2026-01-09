@@ -15,10 +15,8 @@ Meta-skills give agents **agency over their own skill ecosystem**. Unlike regula
 
 | Skill | Type | Purpose |
 |-------|------|---------|
-| `detecting-skill-gaps` | Introspective | Recognize when a skill would help but doesn't exist |
 | `discovering-skills` | Introspective | Find existing skills before building new ones |
 | `adapting-skills` | Introspective | Modify skills for new contexts |
-| `fusing-skills` | Introspective | Combine multiple skills for complex tasks |
 | `connecting-agents` | Connective | Delegate to external agents (Manus, etc.) |
 
 ### Two Dimensions
@@ -26,6 +24,11 @@ Meta-skills give agents **agency over their own skill ecosystem**. Unlike regula
 **Introspective**: Agent reasons about its own skill ecosystem
 
 **Connective**: Agent delegates to external agents when needed
+
+### Planned Skills
+
+- `detecting-skill-gaps` - Recognize when a skill would help but doesn't exist
+- `fusing-skills` - Combine multiple skills for complex tasks
 
 ## Installation
 
@@ -43,20 +46,16 @@ cp -r .claude/skills/* ~/.claude/skills/
 
 These skills activate automatically when relevant. Examples:
 
-**Gap Detection**
-> User corrects Claude on the same pattern 3 times
-> Claude: "I notice you prefer X pattern. A skill could capture this. Create one?"
-
 **Discovery**
-> User: "I need to work with PDFs"
+> User: "I need to work with PDFs"  
 > Claude: Searches for existing PDF skills before attempting the task
 
-**Fusion**
-> User: "Extract data from this PDF and make an Excel chart"
-> Claude: Combines pdf + xlsx skills to handle the cross-domain task
+**Adaptation**
+> User: "This skill is close but uses the wrong framework"  
+> Claude: Forks the skill and adapts it for your context
 
 **Delegation**
-> User: "Fill out this web form with the data"
+> User: "Fill out this web form with the data"  
 > Claude: "This requires browser automation. Delegating to Manus..."
 
 ## Philosophy
